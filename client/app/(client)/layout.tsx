@@ -22,9 +22,7 @@ export default function MainLayout({ children }: Readonly<IChildren>) {
         className="app_main_cover"
         aria-label="Main content"
       >
-        <div className="app_container">
-          <div>{children}</div>
-        </div>
+        <div className="app_container">{children}</div>
       </main>
     </section>
   );

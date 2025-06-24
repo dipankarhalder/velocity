@@ -11,31 +11,35 @@
   }
 }
 
+.grid_center {
+  display: grid;
+  align-items: center;
+}
+
 // ================================
 // Layout
 // ================================
 .app_navigation {
-  display: flex;
-  justify-content: center;
+  display: grid;
   width: 100%;
   padding: 18px 0;
 
   .app_nav_wrapper {
-    display: flex;
+    @extend .grid_center;
+    grid-template-columns: 1fr auto;
     width: 100%;
-    justify-content: space-between;
 
     .app_nav_items {
-      display: flex;
-      align-items: center;
+      @extend .grid_center;
+      grid-template-columns: auto 1fr;
       gap: 110px;
 
       .app_nav_category {
-        display: flex;
+        @extend .grid_center;
+        grid-auto-flow: column;
         background: $transparent;
-        border: 0px solid $transparent;
-        align-items: center;
         gap: 10px;
+        border: 0;
 
         > span {
           @include icon-size(24px);
@@ -48,16 +52,16 @@
         }
       }
 
-      > ul {
+      > ul.app_nav_links {
         display: flex;
-        gap: 26px;
+        gap: 30px;
 
         > li {
           > button {
-            display: flex;
+            @extend .grid_center;
+            grid-auto-flow: column;
             background: $transparent;
-            border: 0px solid $transparent;
-            align-items: center;
+            border: 0;
             gap: 4px;
 
             > span {
@@ -73,10 +77,11 @@
         }
       }
     }
+
     .app_nav_offers {
       > a {
-        display: flex;
-        align-items: center;
+        @extend .grid_center;
+        grid-auto-flow: column;
         gap: 8px;
 
         > span {
